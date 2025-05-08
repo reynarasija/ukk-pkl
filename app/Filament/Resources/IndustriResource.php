@@ -19,6 +19,11 @@ class IndustriResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
 
+    // public static function canAccess(): bool
+    // {
+    //     return auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('Siswa');
+    // }
+
     public static function form(Form $form): Form
     {
         return $form

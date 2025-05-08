@@ -19,6 +19,10 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    // public static function canAccess(): bool
+    // {
+    //     return auth()->user()->hasRole('super_admin');
+    // }
     public static function form(Form $form): Form
     {
         return $form
@@ -30,6 +34,12 @@ class UserResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('nis')
+                    ->maxLength(255)
+                    ->label('NIS'),
+                Forms\Components\TextInput::make('nip')
+                    ->maxLength(255)
+                    ->label('NIP'),    
                 Forms\Components\DateTimePicker::make('email_verified_at'),
                 Forms\Components\TextInput::make('password')
                     ->password()
