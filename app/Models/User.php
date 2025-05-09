@@ -23,6 +23,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nis',
+        'gender',
+        'alamat',
+        'kontak',
+        'status_pkl',
     ];
 
     /**
@@ -57,10 +62,5 @@ class User extends Authenticatable
             ->explode(' ')
             ->map(fn(string $name) => Str::of($name)->substr(0, 1))
             ->implode('');
-    }
-
-    public function siswa()
-    {
-        return $this->hasOne(Siswa::class, 'user_id');
     }
 }
