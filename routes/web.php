@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
-use App\Http\Controllers\Api\UserController;
+// use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\PKLController;
 use App\Http\Controllers\IndustriController;
+use App\Http\Controllers\ProfileController;
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('pkl', PKLController::class);
@@ -30,14 +31,15 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 
+
     // API Routes
-    Route::prefix('api')->group(function () {
-        Route::get('/users', [UserController::class, 'index']);
-        Route::get('/users/{user}', [UserController::class, 'show']);
-        Route::post('/users', [UserController::class, 'store']);
-        Route::put('/users/{user}', [UserController::class, 'update']);
-        Route::delete('/users/{user}', [UserController::class, 'destroy']);
-    });
+    // Route::prefix('api')->group(function () {
+    //     Route::get('/users', [UserController::class, 'index']);
+    //     Route::get('/users/{user}', [UserController::class, 'show']);
+    //     Route::post('/users', [UserController::class, 'store']);
+    //     Route::put('/users/{user}', [UserController::class, 'update']);
+    //     Route::delete('/users/{user}', [UserController::class, 'destroy']);
+    // });
 
 
 });

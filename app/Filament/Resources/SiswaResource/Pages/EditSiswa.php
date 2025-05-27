@@ -16,7 +16,7 @@ class EditSiswa extends EditRecord
     {
         // Update user data
         $record->update([
-            'name' => $data['name'],
+            'nama' => $data['nama'],
             'email' => $data['email'],
             'password' => $data['password'] ?? $record->password,
         ]);
@@ -25,7 +25,7 @@ class EditSiswa extends EditRecord
         $siswa = Siswa::updateOrCreate(
             ['id' => $record->id],
             [
-                'nama' => $data['name'],
+                'nama' => $data['nama'],
                 'nis' => $data['nis'],
                 'alamat' => $data['alamat'],
                 'kontak' => $data['kontak'],

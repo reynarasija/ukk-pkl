@@ -17,6 +17,8 @@ class PKL extends Model
         'selesai',
     ];
 
+    public $timestamps = true;
+
     protected static function booted()
     {
         static::created(function ($pkl) {

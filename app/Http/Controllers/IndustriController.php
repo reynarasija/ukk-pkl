@@ -20,7 +20,7 @@ class IndustriController extends Controller
      */
     public function create()
     {
-        //
+        return view('industri.create');
     }
 
     /**
@@ -28,7 +28,19 @@ class IndustriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'bidang_usaha' => 'required|string|max:255',
+        'alamat' => 'required|string',
+        'kontak' => 'required|string|max:20',
+        'email' => 'required|email|max:255',
+    ]);
+
+    Industri::create($request->only([
+        'nama', 'bidang_usaha', 'alamat', 'kontak', 'email'
+    ]));
+
+    return redirect()->route('industri.index')->with('success', 'Data industri berhasil ditambahkan.');
     }
 
     /**
